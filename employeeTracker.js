@@ -12,8 +12,10 @@ const connection = mysql.createConnection({
     database: "employeeTracker_db",
 });
 
+// Connect to MySQL sever & SQL db
 connection.connect((err) => {
     if (err) throw err;
+    // Runs the runSearch function after connection is made to prompt user for action
     runSearch();
 });
 
@@ -94,9 +96,9 @@ const addDepartment = () => {
       .then((answer) => {
           // When finished prompting, department name added to db
           connection.query(
-            "INSERT INTO department SET ?",
+            "INSERT INTO departments SET ?",
             {
-                name: answer.department,
+                name: answer.departments,
             },
             (err) => {
                 if (err) throw err;
