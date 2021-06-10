@@ -37,6 +37,7 @@ const runSearch = () => {
             'Remove department',
             'Remove role',
             'Remove employee',
+            'Exit application'
         ],
       })
       // Switch statements depending on action user wants to take
@@ -80,7 +81,11 @@ const runSearch = () => {
 
             case 'Remove employee':
                 removeEmployee();
-                break; 
+                break;
+
+            case 'Exit application':
+                connection.end();
+                break;
           }
       });
 };
@@ -89,7 +94,7 @@ const runSearch = () => {
 const addDepartment = () => {
     inquirer
       .prompt({
-          name: 'department',
+          name: 'departments',
           type: 'input',
           message: 'Input department name:',
       })
