@@ -17,6 +17,7 @@ connection.connect((err) => {
     runSearch();
 });
 
+// Function which prompts the user what action they would like to take
 const runSearch = () => {
     inquirer
       .prompt({
@@ -36,7 +37,7 @@ const runSearch = () => {
             'Remove employee',
         ],
       })
-
+      // Switch statements depending on action user wants to take
       .then((answer) => {
           switch (answer.action) {
             case 'Add department':
@@ -80,4 +81,107 @@ const runSearch = () => {
                 break; 
           }
       });
+};
+
+// Function for user to input department name 
+const addDepartment = () => {
+    inquirer
+      .prompt({
+          name: 'department',
+          type: 'input',
+          message: 'Input department name:',
+      })
+      .then((answer) => {
+          // When finished prompting, department name added to db
+          connection.query(
+            "INSERT INTO department SET ?",
+            {
+                name: answer.department,
+            },
+            (err) => {
+                if (err) throw err;
+                console.log("Department successfully added!");
+                // Re-prompt the user for next action
+                runSearch();
+            }
+        );
+    });
+};
+
+// Function for user to input role data 
+const addRole = () => {
+    inquirer
+      .prompt([
+        {
+          name: 'role',
+          type: 'input',
+          message: 'Input role: ',
+        },
+       {
+          name: 'salary',
+          type: 'input',
+          message: 'Input salary: '
+       },
+       {
+        name: 'departmentId',
+        type: 'input',
+        message: 'Input department ID: '
+       },
+    ])
+      .then((answer) => {
+        // When finished prompting, inserts role data into db
+        connection.query(
+          "INSERT INTO role SET ?",
+          {
+            title: answer.role,
+            salary: answer.salary,
+            department_id: answer.departmentId,
+          },
+          (err) => {
+              if (err) throw err;
+              console.log("Role successfully added!");
+              // Re-prompt the user for next action
+              runSearch();
+          }
+        );
+    });
+};
+
+// Function for user to input employee data
+const addEmployee = () => {
+    inquirer
+      .prompt([
+        {
+          name: 'firstName',
+          type: 'input',
+          message: 'Input employee\'s first name: ',
+        },
+       {
+          name: 'lastName',
+          type: 'input',
+          message: 'Input employee\'s last name: '
+       },
+       {
+        name: 'roleId',
+        type: 'input',
+        message: 'Input employee\'s role ID: '
+       },
+    ])
+    .then((answer) => {
+        // When finished prompting, inserts employee data into db
+        connection.query(
+          "INSERT INTO employee SET ?",
+          {
+            first_name: answer.firstName,
+            last_name: answer.lastName,
+            role_id: answer.roleId,
+          },
+          (err) => {
+              if (err) throw err;
+              console.log("Employee successfully added!");
+              // Re-prompt the user for next action
+              runSearch();
+          }
+        );
+    });
 };
