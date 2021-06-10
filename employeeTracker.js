@@ -86,8 +86,8 @@ const runSearch = () => {
             case 'Exit application':
                 connection.end();
                 break;
-          }
-      });
+        }
+    });
 };
 
 // Function for user to input department name 
