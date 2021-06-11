@@ -96,7 +96,7 @@ const addDepartment = () => {
       .prompt({
           name: 'departments',
           type: 'input',
-          message: 'Input department name:',
+          message: 'Input department name: ',
       })
       .then((answer) => {
           // When finished prompting, department name added to db
