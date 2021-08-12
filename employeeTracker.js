@@ -19,6 +19,8 @@ connection.connect((err) => {
     runSearch();
 });
 
+//////////////////////// PROMPT USER FUNCTIONS  ////////////////////////
+
 // Function which prompts the user what action they would like to take
 const runSearch = () => {
     inquirer
@@ -30,17 +32,14 @@ const runSearch = () => {
             'Add department',
             'Add role',
             'Add employee',
-            'View all departments',
-            'View all roles',
+            'View all employees by department',
+            'View all employees by role',
             'View all employees',
             'Update employee role',
-            'Remove department',
-            'Remove role',
-            'Remove employee',
             'Exit application'
         ],
       })
-      // Switch statements depending on action user wants to take
+      // Switch statements depending on action user wants to take & corresponding function
       .then((answer) => {
           switch (answer.action) {
             case 'Add department':
@@ -55,11 +54,11 @@ const runSearch = () => {
                 addEmployee();
                 break;
 
-            case 'View all departments':
+            case 'View all employees by department':
                 viewDepartments();
                 break;
 
-            case 'View all roles':
+            case 'View all employees by role':
                 viewRoles();
                 break;
 
@@ -67,20 +66,8 @@ const runSearch = () => {
                 viewEmployees();
                 break;
 
-            case 'Update employee role':
+            case 'Update employees by role':
                 updateEmployeeRole();
-                break;
-
-            case 'Remove department':
-                removeDepartment();
-                break;
-
-            case 'Remove role':
-                removeRole();
-                break;
-
-            case 'Remove employee':
-                removeEmployee();
                 break;
 
             case 'Exit application':
@@ -89,6 +76,8 @@ const runSearch = () => {
         }
     });
 };
+
+//////////////////////// ADD DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
 
 // Function for user to input department name 
 const addDepartment = () => {
@@ -192,3 +181,9 @@ const addEmployee = () => {
         );
     });
 };
+
+
+//////////////////////// VIEW DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
+
+
+//////////////////////// UPDATE DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
