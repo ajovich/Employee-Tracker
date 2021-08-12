@@ -57,7 +57,7 @@ Bonus points if you're able to:
 
 * Seed the database & run, 
 
-* Run npm start in your terminal
+* Run node employeeTracker.js in your terminal
 
 * Please ensure [NodeJs](https://nodejs.org/en/) is downloaded prior to application use.
 
