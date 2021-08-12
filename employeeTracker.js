@@ -186,13 +186,13 @@ const addEmployee = () => {
 //////////////////////// VIEW DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
 
 function viewEmployees() {
-    connection.query("SELECT employee.first_name, employee.last_name, role.title, department.department_name, CONCAT (e.first_name, ' ', e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee e ON employee.manager_id = e.id ORDER BY last_name ASC),
+    // connection.query("SELECT employee.first_name, employee.last_name, role.title, department.department_name, CONCAT (e.first_name, ' ', e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee e ON employee.manager_id = e.id ORDER BY last_name ASC),
 
-    connection.query(query, (err, res) => {
-        if (err) throw err;
-        connection.end;
-    });
-    runSearch()
+    // connection.query(query, (err, res) => {
+    //     if (err) throw err;
+    //     connection.end;
+    // });
+    // runSearch()
 };
 
 function viewDepartments() {
