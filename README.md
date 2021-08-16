@@ -68,7 +68,7 @@ Bonus points if you're able to:
 
 * Click https://drive.google.com/file/d/1toRD_sWxcWoSDou_MK8lBS1R2vZJO_in/view for video demonstration
 
-* ![Alt Title](assets/EmployeeTrackerTerminal.png)
+* ![Employee Tracker Terminal](assets/EmployeeTrackerTerminal.png)
 
 
 # MIT License 
@@ -84,4 +84,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Link to GitHub Repository
 
-* TBD
+* https://github.com/ajovich/Employee-Tracker
