@@ -55,9 +55,9 @@ Bonus points if you're able to:
 
 * Create the employeeTracker_db database in mySQL Workbench, 
 
-* Seed the database & run, 
+* Seed the database using node seed.sql, 
 
-* Run node employeeTracker.js in your terminal
+* Run node employeeTracker.js
 
 * Please ensure [NodeJs](https://nodejs.org/en/) is downloaded prior to application use.
 
