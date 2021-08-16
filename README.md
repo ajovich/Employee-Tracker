@@ -66,9 +66,9 @@ Bonus points if you're able to:
 
 ## Animation & Images
 
-* Animation Link TBD
+* Click https://drive.google.com/file/d/1toRD_sWxcWoSDou_MK8lBS1R2vZJO_in/view for video demonstration
 
-* ![Alt Title](assets/path/image.png)
+* ![Alt Title](assets/EmployeeTrackerTerminal.png)
 
 
 # MIT License 
