@@ -19,8 +19,6 @@ connection.connect((err) => {
     runSearch();
 });
 
-//////////////////////// PROMPT USER FUNCTIONS  ////////////////////////
-
 // Function which prompts the user what action they would like to take
 const runSearch = () => {
     inquirer
@@ -77,9 +75,7 @@ const runSearch = () => {
     });
 };
 
-//////////////////////// ADD DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
-
-// Function for user to input department name 
+// Add department
 const addDepartment = () => {
     inquirer
       .prompt({
@@ -104,7 +100,7 @@ const addDepartment = () => {
     });
 };
 
-// Function for user to input role data 
+// Add role
 const addRole = () => {
     inquirer
       .prompt([
@@ -143,7 +139,7 @@ const addRole = () => {
     });
 };
 
-// Function for user to input employee data
+// Add employee
 const addEmployee = () => {
     inquirer
       .prompt([
@@ -182,30 +178,54 @@ const addEmployee = () => {
     });
 };
 
-/// https://www.mysqltutorial.org/mysql-join/ ///
-//////////////////////// VIEW DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
+/// https://www.mysqltutorial.org/mysql-join/, https://www.w3schools.com/sql/sql_join.asp, Bootcamp week 12 activity 14 ////
 
+// View employees
 function viewEmployees() {
-    // connection.query("SELECT employee.first_name, employee.last_name, role.title, department.department_name, CONCAT (e.first_name, ' ', e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department ON department.id = role.department_id LEFT JOIN employee e ON employee.manager_id = e.id ORDER BY last_name ASC),
-
-    // connection.query(query, (err, res) => {
-    //     if (err) throw err;
-    //     connection.end;
-    // });
-    // runSearch()
+    let query = 
+        `SELECT employee.firstName, employee.lastName, role.role, role.salary, role.departmentId`;
+    query += 
+        `FROM employee`;
+    query += 
+        `INNER JOIN role ON employee.roleId = employee.roleId INNER JOIN departments ON role.departmentId = role.departmentId`;
+    query += 
+        `ORDER BY lastName ASC`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log(res);
+    })
+    runSearch();
 };
 
+// View departments
 function viewDepartments() {
-
+    let query = 
+        `SELECT * FROM departments`;
+    query += 
+        `ORDER BY departments ASC`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log(res);
+    })
+    runSearch();
 };
 
+// View roles
 function viewRoles() {
-
+    let query = 
+        `SELECT * FROM role`;
+    query += 
+        `INNER JOIN departments ON role.departmentId = departmentId`;
+    query += 
+        `ORDER BY role ASC`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log(res);
+    })
+    runSearch();
 };
 
-
-//////////////////////// UPDATE DEPARTMENT, ROLES, & EMPLOYEES ////////////////////////
-
+// Update employee role
 function updateEmployeeRole() {
-
+// I do an inquirer prompt similar to runSearch function?
 };

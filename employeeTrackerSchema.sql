@@ -31,6 +31,7 @@ CREATE TABLE employee (
 );
 
 -- HOW TO JOIN TABLES
+-- LOOK AT MINI PROJECT
 -- use employeeTracker_db;
 -- SELECT employee.*, 
 -- 	employeeManager.first_name as manager_first, 
