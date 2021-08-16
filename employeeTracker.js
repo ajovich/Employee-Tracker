@@ -132,7 +132,7 @@ const addRole = () => {
           {
             title: answer.role,
             salary: answer.salary,
-            department_id: answer.departmentId,
+            departmentId: answer.departmentId,
           },
           (err) => {
               if (err) throw err;
@@ -169,9 +169,9 @@ const addEmployee = () => {
         connection.query(
           "INSERT INTO employee SET ?",
           {
-            first_name: answer.firstName,
-            last_name: answer.lastName,
-            role_id: answer.roleId,
+            firstName: answer.firstName,
+            lastName: answer.lastName,
+            roleId: answer.roleId,
           },
           (err) => {
               if (err) throw err;
@@ -261,11 +261,11 @@ const updateRole = () => {
         connection.query(
           "INSERT INTO role SET ?",
           {
-            first_name: answer.firstName,
-            last_name: answer.lastName,
+            firstName: answer.firstName,
+            lastName: answer.lastName,
             title: answer.role,
             salary: answer.salary,
-            department_id: answer.departmentId,
+            departmentId: answer.departmentId,
           },
           (err) => {
               if (err) throw err;
