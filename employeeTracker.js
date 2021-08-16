@@ -19,6 +19,11 @@ connection.connect((err) => {
     runSearch();
 });
 
+// Function to hold an empty array for all employees until user updates employee role
+const employee = () => {
+    const employee = [];
+};
+
 // Function which prompts the user what action they would like to take
 const runSearch = () => {
     inquirer
@@ -226,6 +231,48 @@ function viewRoles() {
 };
 
 // Update employee role
-function updateEmployeeRole() {
-// I do an inquirer prompt similar to runSearch function?
+const updateRole = () => {
+    inquirer
+      .prompt([
+        {
+            name: 'role',
+            type: 'input',
+            message: 'Select the employee you would like to update',
+            choices: employee()
+          },
+        {
+          name: 'role',
+          type: 'input',
+          message: 'Update role: ',
+        },
+       {
+          name: 'salary',
+          type: 'input',
+          message: 'Update salary: '
+       },
+       {
+        name: 'departmentId',
+        type: 'input',
+        message: 'Update department ID: '
+       },
+    ])
+      .then((answer) => {
+        // When finished prompting, inserts updated role data into db
+        connection.query(
+          "INSERT INTO role SET ?",
+          {
+            first_name: answer.firstName,
+            last_name: answer.lastName,
+            title: answer.role,
+            salary: answer.salary,
+            department_id: answer.departmentId,
+          },
+          (err) => {
+              if (err) throw err;
+              console.log("Employee role successfully updated!");
+              // Re-prompt the user for next action
+              runSearch();
+          }
+        );
+    });
 };
